@@ -35,12 +35,12 @@ HTTP/1.1 and WebDAV  methods, and a low-level interface to
 HTTP request/response handling, allowing new methods to be 
 easily implemented.
 
-%package i18n
+%package	i18n
 Summary:	Language files for Neon
 Group:		System/Internationalization 
 BuildArch:	noarch
 
-%description i18n
+%description	i18n
 neon is an HTTP and WebDAV client library for Unix systems, 
 with a C language API. It provides high-level interfaces to 
 HTTP/1.1 and WebDAV  methods, and a low-level interface to 
@@ -125,7 +125,7 @@ cp src/README README.neon
 %files -n %{develname}
 %doc AUTHORS BUGS doc/html ChangeLog NEWS README THANKS TODO
 %{_bindir}/neon-config
-%{_libdir}/lib*.so
+%{_libdir}/libneon.so
 %{_libdir}/pkgconfig/neon.pc
 %dir %{_includedir}/neon
 %{_includedir}/neon/*
