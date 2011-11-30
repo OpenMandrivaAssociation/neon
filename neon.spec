@@ -64,6 +64,7 @@ Group:		Development/C++
 Requires:	%{libname} = %{version}-%{version}
 Provides:	neon-devel = %{version}-%{version}
 Obsoletes:	%mklibname %{name} 0.27 -d
+Conflicts:	%{mklibname neon 0.26}-devel
 
 %description -n	%{develname}
 This package contains the headers that programmers will need to develop
