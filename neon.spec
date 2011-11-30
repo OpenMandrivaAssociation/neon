@@ -5,7 +5,7 @@
 Summary: 	An HTTP and WebDAV client library, with a C interface
 Name: 		neon
 Version: 	0.29.6
-Release: 	3
+Release: 	4
 Group: 		Development/Other
 License: 	GPLv2+ and LGPLv2+
 URL: 		http://www.webdav.org/neon/
@@ -61,8 +61,8 @@ easily implemented.
 %package -n	%{develname}
 Summary:	Headers for developing programs that will use %{name}
 Group:		Development/C++
-Requires:	%{libname} = %{version}-%{version}
-Provides:	neon-devel = %{version}-%{version}
+Requires:	%{libname} = %{version}-%{release}
+Provides:	neon-devel = %{version}-%{release}
 Obsoletes:	%mklibname %{name} 0.27 -d
 Conflicts:	%{mklibname neon 0.26}-devel
 
