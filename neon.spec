@@ -81,6 +81,9 @@ applications which will use %{name}.
 %patch6 -p1
 %patch7 -p1
 
+# fix mo clash (#28428)
+perl -pi -e "s|_LIBNAME_|%{libname}|g" Makefile.in src/ne_internal.h
+
 # this value has to be raised on x86_64
 perl -pi -e "s|^ulimit \-v .*|ulimit \-v 40960|g" test/run.sh
 
