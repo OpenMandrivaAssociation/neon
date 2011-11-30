@@ -61,7 +61,7 @@ easily implemented.
 %package -n	%{develname}
 Summary:	Headers for developing programs that will use %{name}
 Group:		Development/C++
-Requires:	%{libname} = %{version}-%{release}
+Requires:	%{libname} >= %{version}-%{release}
 Provides:	neon-devel = %{version}-%{release}
 Obsoletes:	%mklibname %{name} 0.27 -d
 Conflicts:	%{mklibname neon 0.26}-devel
