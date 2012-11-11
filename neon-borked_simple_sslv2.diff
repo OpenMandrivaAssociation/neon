@@ -1,0 +1,12 @@
+--- test/ssl.c	2008-02-29 11:07:47.000000000 +0100
++++ test/ssl.c.oden	2008-04-19 18:01:26.000000000 +0200
+@@ -1607,7 +1607,9 @@
+     T(load_client_cert),
+ 
+     T(simple),
++#if 0
+     T(simple_sslv2),
++#endif
+     T(simple_eof),
+     T(empty_truncated_eof),
+     T(fail_not_ssl),

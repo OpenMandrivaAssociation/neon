@@ -1,0 +1,13 @@
+--- test/socket.c	2008-02-28 14:19:19.000000000 +0100
++++ test/socket.c.oden	2008-04-19 17:59:44.000000000 +0200
+@@ -1243,8 +1245,10 @@
+     T(ssl_truncate),
+ #else
+     T(write_reset),
++#if 0
+     T(read_reset),
+ #endif
++#endif
+ #if TEST_CONNECT_TIMEOUT
+     T(connect_timeout),
+ #endif
