@@ -97,7 +97,8 @@ perl -pi -e "s|^ulimit \-v .*|ulimit \-v 40960|g" test/run.sh
     --with-ssl=openssl \
     --enable-threadsafe-ssl=posix \
     --with-ca-bundle=%{_sysconfdir}/pki/tls/certs/ca-bundle.crt \
-    --with-libxml2
+    --with-libxml2 \
+    --without-libproxy
 
 %make
 
