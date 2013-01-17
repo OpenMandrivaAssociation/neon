@@ -7,7 +7,7 @@ Name:		neon
 Version:	0.29.6
 Release:	9
 Group:		Development/Other
-License: 	GPLv2+ and LGPLv2+
+License:	GPLv2+ and LGPLv2+
 URL:		http://www.webdav.org/neon/
 Source0:	http://www.webdav.org/neon/%{name}-%{version}.tar.gz
 Source1:	http://www.webdav.org/neon/%{name}-%{version}.tar.gz.asc
