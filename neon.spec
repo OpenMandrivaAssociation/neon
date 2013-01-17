@@ -1,11 +1,11 @@
-%define major 0.27
-%define libname %mklibname %{name} %{major}
-%define develname %mklibname %{name} -d
+%define	major	0.27
+%define	libname	%mklibname %{name} %{major}
+%define	devname	%mklibname %{name} -d
 
 Summary:	An HTTP and WebDAV client library, with a C interface
 Name:		neon
 Version:	0.29.6
-Release:	8
+Release:	9
 Group:		Development/Other
 License: 	GPLv2+ and LGPLv2+
 URL:		http://www.webdav.org/neon/
@@ -58,7 +58,7 @@ HTTP/1.1 and WebDAV  methods, and a low-level interface to
 HTTP request/response handling, allowing new methods to be 
 easily implemented.
 
-%package -n	%{develname}
+%package -n	%{devname}
 Summary:	Headers for developing programs that will use %{name}
 Group:		Development/C++
 Requires:	%{libname} >= %{EVRD}
@@ -66,7 +66,7 @@ Provides:	neon-devel = %{EVRD}
 Obsoletes:	%{mklibname neon 0.27 -d} < 0.29.6-7
 Conflicts:	%{mklibname neon 0.26}-devel < 0.29.6-7
 
-%description -n	%{develname}
+%description -n	%{devname}
 This package contains the headers that programmers will need to develop
 applications which will use %{name}.
 
@@ -103,7 +103,6 @@ perl -pi -e "s|^ulimit \-v .*|ulimit \-v 40960|g" test/run.sh
 #%make check <- the tests are broken, and/or some of the iurt tar balls and/or some build node, take your pick
 
 %install
-rm -rf %{buildroot}
 %makeinstall
 
 # fix this
@@ -119,7 +118,7 @@ cp src/README README.neon
 %files -n %{libname}
 %{_libdir}/libneon.so.27*
 
-%files -n %{develname}
+%files -n %{devname}
 %doc AUTHORS BUGS doc/html ChangeLog NEWS README THANKS TODO
 %{_bindir}/neon-config
 %{_libdir}/libneon.so
@@ -129,9 +128,10 @@ cp src/README README.neon
 %{_mandir}/man1/*
 %{_mandir}/man3/*
 
-
-
 %changelog
+* Thu Jan 17 2013 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.29.6-9
+- cleanups
+
 * Fri Mar 23 2012 Bernhard Rosenkraenzer <bero@bero.eu> 0.29.6-6
 + Revision: 786472
 - Rebuild with openssl 1.0.1
