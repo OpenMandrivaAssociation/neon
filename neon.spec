@@ -107,6 +107,10 @@ perl -pi -e "s|^ulimit \-v .*|ulimit \-v 40960|g" test/run.sh
 %install
 %makeinstall
 
+mkdir %{buildroot}/%{_lib}
+mv %{buildroot}%{_libdir}/libneon.so.%{major}* %{buildroot}/%{_lib}
+ln -srf %{buildroot}/%{_lib}/libneon.so.%{major}.*.* %{buildroot}%{_libdir}/libneon.so
+
 # fix this
 rm -rf %{buildroot}%{_datadir}/doc
 
@@ -118,7 +122,7 @@ cp src/README README.neon
 %doc doc/*.txt README.neon
 
 %files -n %{libname}
-%{_libdir}/libneon.so.%{major}*
+/%{_lib}/libneon.so.%{major}*
 
 %files -n %{devname}
 %doc AUTHORS BUGS doc/html ChangeLog NEWS README THANKS TODO
@@ -132,6 +136,7 @@ cp src/README README.neon
 
 %changelog
 * Thu Jan 17 2013 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.29.6-9
+- move library to /%%{_lib} as it's required by /bin/rpm
 - fix proper naming of package according to ABI major
 - cleanups
 
