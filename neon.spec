@@ -1,4 +1,4 @@
-%define	major	0.27
+%define	major	27
 %define	libname	%mklibname %{name} %{major}
 %define	devname	%mklibname %{name} -d
 
@@ -50,6 +50,8 @@ easily implemented.
 %package -n	%{libname}
 Summary:	Shared library for Neon
 Group:		System/Libraries
+%define	bogus	%mklibname %{name} 0.27
+%rename		%{bogus}
 
 %description -n %{libname}
 neon is an HTTP and WebDAV client library for Unix systems, 
@@ -116,7 +118,7 @@ cp src/README README.neon
 %doc doc/*.txt README.neon
 
 %files -n %{libname}
-%{_libdir}/libneon.so.27*
+%{_libdir}/libneon.so.%{major}*
 
 %files -n %{devname}
 %doc AUTHORS BUGS doc/html ChangeLog NEWS README THANKS TODO
@@ -130,6 +132,7 @@ cp src/README README.neon
 
 %changelog
 * Thu Jan 17 2013 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.29.6-9
+- fix proper naming of package according to ABI major
 - cleanups
 
 * Fri Mar 23 2012 Bernhard Rosenkraenzer <bero@bero.eu> 0.29.6-6
