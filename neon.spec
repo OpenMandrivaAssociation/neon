@@ -1,11 +1,11 @@
-%define	major	27
-%define	libname	%mklibname %{name} %{major}
-%define	devname	%mklibname %{name} -d
+%define major 27
+%define libname %mklibname %{name} %{major}
+%define devname %mklibname %{name} -d
 
 Summary:	An HTTP and WebDAV client library, with a C interface
 Name:		neon
 Version:	0.29.6
-Release:	9
+Release:	10
 Group:		Development/Other
 License:	GPLv2+ and LGPLv2+
 Url:		http://www.webdav.org/neon/
@@ -35,12 +35,12 @@ HTTP/1.1 and WebDAV  methods, and a low-level interface to
 HTTP request/response handling, allowing new methods to be 
 easily implemented.
 
-%package	i18n
+%package i18n
 Summary:	Language files for Neon
 Group:		System/Internationalization 
 BuildArch:	noarch
 
-%description	i18n
+%description i18n
 neon is an HTTP and WebDAV client library for Unix systems, 
 with a C language API. It provides high-level interfaces to 
 HTTP/1.1 and WebDAV  methods, and a low-level interface to 
@@ -50,7 +50,7 @@ easily implemented.
 %package -n	%{libname}
 Summary:	Shared library for Neon
 Group:		System/Libraries
-%define	bogus	%mklibname %{name} 0.27
+%define	bogus %mklibname %{name} 0.27
 %rename		%{bogus}
 
 %description -n %{libname}
@@ -102,11 +102,11 @@ perl -pi -e "s|^ulimit \-v .*|ulimit \-v 40960|g" test/run.sh
 
 %make
 
-#%%check
-#%make check <- the tests are broken, and/or some of the iurt tar balls and/or some build node, take your pick
+%check
+make check
 
 %install
-%makeinstall
+%makeinstall_std
 
 mkdir %{buildroot}/%{_lib}
 mv %{buildroot}%{_libdir}/libneon.so.%{major}* %{buildroot}/%{_lib}
