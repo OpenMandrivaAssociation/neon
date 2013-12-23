@@ -4,8 +4,8 @@
 
 Summary:	An HTTP and WebDAV client library, with a C interface
 Name:		neon
-Version:	0.29.6
-Release:	14
+Version:	0.30.0
+Release:	1
 Group:		Development/Other
 License:	GPLv2+ and LGPLv2+
 Url:		http://www.webdav.org/neon/
@@ -16,7 +16,6 @@ Patch1:		neon-fail_parse.diff
 Patch2:		neon-borked_addr_reverse.diff
 Patch3:		neon-borked_retry_notcompress_and_retry_compress.diff
 Patch4:		neon-borked_read_reset.diff
-Patch5:		neon-borked_simple_sslv2.diff
 # http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=476571
 Patch6:		neon-0.28.2-fix-segfault.patch
 Patch7:		neon-0.29.6-neon-config_cleanups.diff
@@ -79,7 +78,6 @@ applications which will use %{name}.
 %patch2 -p0
 %patch3 -p0
 %patch4 -p0
-%patch5 -p0
 %patch6 -p1
 %patch7 -p1
 
