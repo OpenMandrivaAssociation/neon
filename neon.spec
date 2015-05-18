@@ -10,7 +10,6 @@ Group:		Development/Other
 License:	GPLv2+ and LGPLv2+
 Url:		http://www.webdav.org/neon/
 Source0:	http://www.webdav.org/neon/%{name}-%{version}.tar.gz
-Source1:	http://www.webdav.org/neon/%{name}-%{version}.tar.gz.asc
 Patch0:		neon-locales.diff
 Patch1:		neon-fail_parse.diff
 Patch2:		neon-borked_addr_reverse.diff
