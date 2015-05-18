@@ -1,5 +1,3 @@
-removed_sources:
-  neon-0.29.6.tar.gz: ae1109923303f67ed3421157927bc4bc29c58961
+---
 sources:
-  neon-0.30.0.tar.gz: 9e6297945226f90d66258b7ee05f757ff5cea10a
-  neon-0.30.0.tar.gz.asc: d15859dca82107503ddd605aaa3e1a64a12b3aa0
+  neon-0.30.1.tar.gz: efec2a6f17d9bd2323345320e3067349ddc9cf79
