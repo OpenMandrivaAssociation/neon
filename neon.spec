@@ -2,6 +2,9 @@
 %define libname %mklibname %{name} %{major}
 %define devname %mklibname %{name} -d
 
+%define _build_pkgcheck_set %{nil}
+%define _build_pkgcheck_srpm %{nil}
+
 Summary:	An HTTP and WebDAV client library, with a C interface
 Name:		neon
 Version:	0.30.1
