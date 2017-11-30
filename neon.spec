@@ -4,8 +4,8 @@
 
 Summary:	An HTTP and WebDAV client library, with a C interface
 Name:		neon
-Version:	0.30.1
-Release:	3.1
+Version:	0.30.2
+Release:	2
 Group:		Development/Other
 License:	GPLv2+ and LGPLv2+
 Url:		http://www.webdav.org/neon/
@@ -21,9 +21,10 @@ Patch7:		neon-0.29.6-neon-config_cleanups.diff
 
 BuildRequires:	libtool
 BuildRequires:	krb5-devel
+BuildRequires:	rootcerts
 BuildRequires:	pkgconfig(libcrypto) >= 0.9.7
 BuildRequires:	pkgconfig(libssl) >= 0.9.7
-BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(expat)
 BuildRequires:	pkgconfig(zlib)
 
 %description
@@ -92,9 +93,10 @@ perl -pi -e "s|^ulimit \-v .*|ulimit \-v 40960|g" test/run.sh
 	--enable-shared \
 	--disable-static \
 	--with-ssl=openssl \
+	--with-expat \
 	--enable-threadsafe-ssl=posix \
 	--with-ca-bundle=%{_sysconfdir}/pki/tls/certs/ca-bundle.crt \
-	--with-libxml2 \
+	--without-libxml2 \
 	--without-libproxy
 
 %make
