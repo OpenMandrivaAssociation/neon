@@ -5,7 +5,7 @@
 Summary:	An HTTP and WebDAV client library, with a C interface
 Name:		neon
 Version:	0.30.2
-Release:	4
+Release:	5
 Group:		Development/Other
 License:	GPLv2+ and LGPLv2+
 Url:		http://www.webdav.org/neon/
@@ -99,16 +99,16 @@ perl -pi -e "s|^ulimit \-v .*|ulimit \-v 40960|g" test/run.sh
 	--without-libxml2 \
 	--without-libproxy
 
-%make
+%make_build
 
 %check
 # FIXME at some point, we need to investigate the failures
 if ! make check; then
-	echo "WARNING: Some tests failed. Please fix..." >&2
+    printf '%s\n'  "WARNING: Some tests failed. Please fix..." >&2
 fi
 
 %install
-%makeinstall_std
+%make_install
 
 mkdir %{buildroot}/%{_lib}
 mv %{buildroot}%{_libdir}/libneon.so.%{major}* %{buildroot}/%{_lib}
@@ -136,4 +136,3 @@ cp src/README README.neon
 %{_includedir}/neon/*
 %{_mandir}/man1/*
 %{_mandir}/man3/*
-

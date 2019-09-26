@@ -7,10 +7,10 @@ diff -Naur neon-0.29.6/neon-config.in neon-0.29.6.oden/neon-config.in
  includedir=@includedir@
 -libdir=@libdir@
 +
-+libdir=`pkg-config --variable=libdir neon`
-+CFLAGS=`pkg-config --cflags neon`
-+LIBS=`pkg-config --libs neon`
-+has_lfs=`pkg-config --variable=has_lfs neon`
++libdir=$(pkg-config --variable=libdir neon)
++CFLAGS=$(pkg-config --cflags neon)
++LIBS=$(pkg-config --libs neon)
++has_lfs=$(pkg-config --variable=has_lfs neon)
  
  usage()
  {
