@@ -9,7 +9,7 @@ Release:	1
 Group:		Development/Other
 License:	GPLv2+ and LGPLv2+
 Url:		http://www.webdav.org/neon/
-Source0:	https://notroj.github.io/neon/%{name}-%{version}
+Source0:	https://notroj.github.io/neon/%{name}-%{version}.tar.gz
 Patch0:		neon-locales.diff
 Patch1:		neon-fail_parse.diff
 Patch2:		neon-borked_addr_reverse.diff
@@ -128,7 +128,7 @@ cp src/README README.neon
 /%{_lib}/libneon.so.%{major}*
 
 %files -n %{devname}
-%doc AUTHORS BUGS doc/html ChangeLog NEWS README THANKS TODO
+%doc AUTHORS BUGS doc/html ChangeLog NEWS THANKS TODO
 %{_bindir}/neon-config
 %{_libdir}/libneon.so
 %{_libdir}/pkgconfig/neon.pc
