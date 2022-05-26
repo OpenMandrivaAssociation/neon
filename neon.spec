@@ -5,7 +5,7 @@
 Summary:	An HTTP and WebDAV client library, with a C interface
 Name:		neon
 Version:	0.31.2
-Release:	3
+Release:	4
 Group:		Development/Other
 License:	GPLv2+ and LGPLv2+
 Url:		https://notroj.github.io/neon/
@@ -46,7 +46,7 @@ HTTP/1.1 and WebDAV  methods, and a low-level interface to
 HTTP request/response handling, allowing new methods to be 
 easily implemented.
 
-%package -n	%{libname}
+%package -n %{libname}
 Summary:	Shared library for Neon
 Group:		System/Libraries
 %define	bogus %mklibname %{name} 0.27
@@ -59,7 +59,7 @@ HTTP/1.1 and WebDAV  methods, and a low-level interface to
 HTTP request/response handling, allowing new methods to be 
 easily implemented.
 
-%package -n	%{devname}
+%package -n %{devname}
 Summary:	Headers for developing programs that will use %{name}
 Group:		Development/C++
 Requires:	%{libname} >= %{EVRD}
@@ -67,7 +67,7 @@ Provides:	neon-devel = %{EVRD}
 Obsoletes:	%{mklibname neon 0.27 -d} < 0.29.6-7
 Conflicts:	%{mklibname neon 0.26}-devel < 0.29.6-7
 
-%description -n	%{devname}
+%description -n %{devname}
 This package contains the headers that programmers will need to develop
 applications which will use %{name}.
 
@@ -113,10 +113,6 @@ fi
 %install
 %make_install
 
-mkdir %{buildroot}/%{_lib}
-mv %{buildroot}%{_libdir}/libneon.so.%{major}* %{buildroot}/%{_lib}
-ln -srf %{buildroot}/%{_lib}/libneon.so.%{major}.*.* %{buildroot}%{_libdir}/libneon.so
-
 # fix this
 rm -rf %{buildroot}%{_datadir}/doc
 
@@ -128,7 +124,7 @@ cp src/README README.neon
 %doc doc/*.txt README.neon
 
 %files -n %{libname}
-/%{_lib}/libneon.so.%{major}*
+%{_libdir}/libneon.so.%{major}*
 
 %files -n %{devname}
 %doc AUTHORS BUGS doc/html ChangeLog NEWS THANKS TODO
@@ -137,5 +133,5 @@ cp src/README README.neon
 %{_libdir}/pkgconfig/neon.pc
 %dir %{_includedir}/neon
 %{_includedir}/neon/*
-%{_mandir}/man1/*
-%{_mandir}/man3/*
+%doc %{_mandir}/man1/*
+%doc %{_mandir}/man3/*
