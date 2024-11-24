@@ -1,6 +1,6 @@
-diff -Naur neon-0.29.6/neon-config.in neon-0.29.6.oden/neon-config.in
---- neon-0.29.6/neon-config.in	2008-02-06 12:12:09.000000000 +0100
-+++ neon-0.29.6.oden/neon-config.in	2011-11-29 18:42:01.577038711 +0100
+diff -up neon-0.34.0/neon-config.in.4~ neon-0.34.0/neon-config.in
+--- neon-0.34.0/neon-config.in.4~	2024-11-23 11:53:08.000000000 +0100
++++ neon-0.34.0/neon-config.in	2024-11-24 15:23:32.723435812 +0100
 @@ -5,7 +5,11 @@
  prefix=@prefix@
  exec_prefix=@exec_prefix@
@@ -14,7 +14,7 @@ diff -Naur neon-0.29.6/neon-config.in neon-0.29.6.oden/neon-config.in
  
  usage()
  {
-@@ -16,14 +20,13 @@
+@@ -16,14 +20,13 @@ Known values for OPTION are:
  
    --prefix=DIR		change neon prefix [default $prefix]
    --libs		print library linking information
@@ -27,10 +27,10 @@ diff -Naur neon-0.29.6/neon-config.in neon-0.29.6.oden/neon-config.in
   Known features: 
 -    dav [@NE_FLAG_DAV@], ssl [@NE_FLAG_SSL@], zlib [@NE_FLAG_ZLIB@], ipv6 [@NE_FLAG_IPV6@], lfs [@NE_FLAG_LFS@],
 +    dav [@NE_FLAG_DAV@], ssl [@NE_FLAG_SSL@], zlib [@NE_FLAG_ZLIB@], ipv6 [@NE_FLAG_IPV6@], lfs [${has_lfs}],
-     i18n [@NE_FLAG_I18N@], ts_ssl [@NE_FLAG_TS_SSL@]
+     i18n [@NE_FLAG_I18N@], ts_ssl [@NE_FLAG_TS_SSL@], gssapi [@NE_FLAG_GSSAPI@], libpxy [@NE_FLAG_LIBPXY@]
  
  EOF
-@@ -69,20 +72,15 @@
+@@ -69,20 +72,15 @@ while test $# -gt 0; do
  	;;
  
      --cflags)
@@ -53,7 +53,7 @@ diff -Naur neon-0.29.6/neon-config.in neon-0.29.6.oden/neon-config.in
  	;;
  
      --support)
-@@ -93,7 +91,7 @@
+@@ -95,7 +93,7 @@ while test $# -gt 0; do
  	zlib|ZLIB) support @NE_FLAG_ZLIB@ ;;
  	ipv6|IPV6) support @NE_FLAG_IPV6@ ;;
  	dav|DAV) support @NE_FLAG_DAV@ ;;
@@ -62,10 +62,10 @@ diff -Naur neon-0.29.6/neon-config.in neon-0.29.6.oden/neon-config.in
  	i18n|I18N) support @NE_FLAG_I18N@ ;;
  	ts_ssl|TS_SSL) support @NE_FLAG_TS_SSL@ ;;
  	*) support no ;;
-diff -Naur neon-0.29.6/neon.pc.in neon-0.29.6.oden/neon.pc.in
---- neon-0.29.6/neon.pc.in	2006-06-26 12:01:29.000000000 +0200
-+++ neon-0.29.6.oden/neon.pc.in	2011-11-29 18:41:23.996793286 +0100
-@@ -2,6 +2,7 @@
+diff -up neon-0.34.0/neon.pc.in.4~ neon-0.34.0/neon.pc.in
+--- neon-0.34.0/neon.pc.in.4~	2024-11-23 11:53:08.000000000 +0100
++++ neon-0.34.0/neon.pc.in	2024-11-24 15:22:50.452983729 +0100
+@@ -2,6 +2,7 @@ prefix=@prefix@
  exec_prefix=@exec_prefix@
  libdir=@libdir@
  includedir=@includedir@

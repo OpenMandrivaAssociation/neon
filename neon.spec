@@ -1,20 +1,18 @@
 %define major 27
-%define libname %mklibname %{name} %{major}
+%define oldlibname %mklibname %{name} 27
+%define libname %mklibname %{name}
 %define devname %mklibname %{name} -d
 
 Summary:	An HTTP and WebDAV client library, with a C interface
 Name:		neon
-Version:	0.31.2
-Release:	5
+Version:	0.34.0
+Release:	1
 Group:		Development/Other
 License:	GPLv2+ and LGPLv2+
 Url:		https://notroj.github.io/neon/
 Source0:	https://notroj.github.io/neon/%{name}-%{version}.tar.gz
 Patch0:		neon-locales.diff
 Patch1:		neon-fail_parse.diff
-Patch2:		neon-borked_addr_reverse.diff
-Patch3:		neon-borked_retry_notcompress_and_retry_compress.diff
-Patch4:		neon-borked_read_reset.diff
 # http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=476571
 Patch6:		neon-0.28.2-fix-segfault.patch
 Patch7:		neon-0.29.6-neon-config_cleanups.diff
@@ -51,6 +49,7 @@ Summary:	Shared library for Neon
 Group:		System/Libraries
 %define	bogus %mklibname %{name} 0.27
 %rename		%{bogus}
+%rename		%{oldlibname}
 
 %description -n %{libname}
 neon is an HTTP and WebDAV client library for Unix systems, 
@@ -72,15 +71,7 @@ This package contains the headers that programmers will need to develop
 applications which will use %{name}.
 
 %prep
-%setup -q
-%patch0 -p1
-%patch1 -p0
-%patch2 -p0
-%patch3 -p0
-%patch4 -p0
-%patch6 -p1
-%patch7 -p1
-
+%autosetup -p1
 # fix mo clash (#28428)
 # this goes with the changes done by Patch0
 perl -pi -e "s|_LIBNAME_|%{libname}|g" Makefile.in src/ne_internal.h
@@ -101,14 +92,11 @@ perl -pi -e "s|^ulimit \-v .*|ulimit \-v 40960|g" test/run.sh
 
 %make_build
 
-# (tpg) 2021-03-05 tests fails because OpenSSLv3
-%if 0
 %check
 # FIXME at some point, we need to investigate the failures
 if ! make check; then
     printf '%s\n'  "WARNING: Some tests failed. Please fix..." >&2
 fi
-%endif
 
 %install
 %make_install
@@ -127,7 +115,7 @@ cp src/README README.neon
 %{_libdir}/libneon.so.%{major}*
 
 %files -n %{devname}
-%doc AUTHORS BUGS doc/html ChangeLog NEWS THANKS TODO
+%doc AUTHORS BUGS doc/html NEWS THANKS TODO
 %{_bindir}/neon-config
 %{_libdir}/libneon.so
 %{_libdir}/pkgconfig/neon.pc
