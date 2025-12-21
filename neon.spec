@@ -17,6 +17,11 @@ Patch1:		neon-fail_parse.diff
 Patch6:		neon-0.28.2-fix-segfault.patch
 Patch7:		neon-0.29.6-neon-config_cleanups.diff
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libtool
 BuildRequires:	krb5-devel
 BuildRequires:	rootcerts
