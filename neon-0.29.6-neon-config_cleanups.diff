@@ -1,6 +1,6 @@
-diff -up neon-0.34.0/neon-config.in.4~ neon-0.34.0/neon-config.in
---- neon-0.34.0/neon-config.in.4~	2024-11-23 11:53:08.000000000 +0100
-+++ neon-0.34.0/neon-config.in	2024-11-24 15:23:32.723435812 +0100
+diff -up neon-0.37.0/neon-config.in.4~ neon-0.37.0/neon-config.in
+--- neon-0.37.0/neon-config.in.4~	2026-03-01 17:05:06.000000000 +0100
++++ neon-0.37.0/neon-config.in	2026-03-02 23:00:19.513775134 +0100
 @@ -5,7 +5,11 @@
  prefix=@prefix@
  exec_prefix=@exec_prefix@
@@ -61,10 +61,10 @@ diff -up neon-0.34.0/neon-config.in.4~ neon-0.34.0/neon-config.in
 +	lfs|LFS) support ${has_lfs} ;;
  	i18n|I18N) support @NE_FLAG_I18N@ ;;
  	ts_ssl|TS_SSL) support @NE_FLAG_TS_SSL@ ;;
- 	*) support no ;;
-diff -up neon-0.34.0/neon.pc.in.4~ neon-0.34.0/neon.pc.in
---- neon-0.34.0/neon.pc.in.4~	2024-11-23 11:53:08.000000000 +0100
-+++ neon-0.34.0/neon.pc.in	2024-11-24 15:22:50.452983729 +0100
+ 	ntlm|NTLM) support @NE_FLAG_NTLM@ ;;
+diff -up neon-0.37.0/neon.pc.in.4~ neon-0.37.0/neon.pc.in
+--- neon-0.37.0/neon.pc.in.4~	2026-03-01 17:05:06.000000000 +0100
++++ neon-0.37.0/neon.pc.in	2026-03-02 22:57:41.496081011 +0100
 @@ -2,6 +2,7 @@ prefix=@prefix@
  exec_prefix=@exec_prefix@
  libdir=@libdir@

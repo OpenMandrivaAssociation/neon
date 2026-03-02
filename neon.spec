@@ -5,7 +5,7 @@
 
 Summary:	An HTTP and WebDAV client library, with a C interface
 Name:		neon
-Version:	0.36.0
+Version:	0.37.0
 Release:	1
 Group:		Development/Other
 License:	GPLv2+ and LGPLv2+
@@ -19,10 +19,8 @@ Patch7:		neon-0.29.6-neon-config_cleanups.diff
 
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool-base
 BuildRequires:	slibtool
 BuildRequires:	make
-BuildRequires:	libtool
 BuildRequires:	krb5-devel
 BuildRequires:	rootcerts
 BuildRequires:	pkgconfig(libcrypto) >= 0.9.7
