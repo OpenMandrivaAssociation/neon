@@ -6,7 +6,7 @@
 Summary:	An HTTP and WebDAV client library, with a C interface
 Name:		neon
 Version:	0.37.1
-Release:	1
+Release:	2
 Group:		Development/Other
 License:	GPLv2+ and LGPLv2+
 Url:		https://notroj.github.io/neon/
